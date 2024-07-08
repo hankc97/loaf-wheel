@@ -1,0 +1,75 @@
+/* NAVBAR MOBILE */
+.nav-toggle {
+  flex-direction: column;
+  justify-content: space-between;
+  height: 22px;
+  width: 22px;
+}
+
+.nav-toggle .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transition: all 100ms ease-in-out;
+}
+
+.nav-toggle:hover {
+  cursor: pointer;
+}
+
+.x:nth-of-type(1) {
+  transition: all 100ms ease-in-out;
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 28px;
+}
+
+.x:nth-of-type(2) {
+  transition: all 100ms ease-in-out;
+  transform-origin: center;
+  width: 0;
+}
+
+.x:nth-of-type(3) {
+  transition: all 100ms ease-in-out;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  width: 28px;
+}
+
+/* X shape when sidebar is open */
+.active {
+  /* Rotate first and third lines to create X shape */
+  &:nth-child(1) {
+    transform: rotate(45deg) translate(3px, 5px); /* Adjust the translate values */
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-45deg) translate(3px, -5px); /* Adjust the translate values */
+  }
+
+  /* Hide middle line */
+  &:nth-child(2) {
+    opacity: 0;
+  }
+}
+
+/* Navbar.css */
+/* SideBar Slide */
+
+.sidebar {
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  left: -1500px; /* Start the sidebar offscreen */
+  width: 100%;
+  height: 140vh;
+  background-color: #f7c065;
+  transition: left 0.3s;
+}
+
+.open {
+  left: 0; /* Slide the sidebar into view */
+}
+
+/* SideBar Slide */

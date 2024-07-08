@@ -1,0 +1,92 @@
+#asset-wheel {
+  transform: translate(
+      calc(var(--distance) * cos(var(--angle))),
+      calc(var(--distance) * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - var(--direction))); /* -90deg is used to align the div correctly */
+}
+
+#point-1 {
+  transform: translate(
+      calc(var(--distance) * cos(var(--angle))),
+      calc(var(--distance) * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - var(--direction))); /* -90deg is used to align the div correctly */
+}
+
+#point-2 {
+  transform: translate(
+      calc(155px * cos(var(--angle))),
+      calc(155px * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - 140deg)); /* -90deg is used to align the div correctly */
+}
+
+#point-3 {
+  transform: translate(
+      calc(210px * cos(var(--angle))),
+      calc(210px * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - 20deg)); /* -90deg is used to align the div correctly */
+}
+
+#point-4 {
+  transform: translate(
+      calc(220px * cos(var(--angle))),
+      calc(220px * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - 268deg)); /* -90deg is used to align the div correctly */
+}
+
+#point-5 {
+  transform: translate(
+      calc(210px * cos(var(--angle))),
+      calc(210px * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - 155deg)); /* -90deg is used to align the div correctly */
+}
+
+#point-6 {
+  transform: translate(
+      calc(160px * cos(var(--angle))),
+      calc(160px * sin(var(--angle)))
+    )
+    /* Rotate each div so it faces the center */
+    rotate(calc(var(--angle) * -1 - 50deg)); /* -90deg is used to align the div correctly */
+}
+
+.absolute-div {
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  /* Position at the center of the relative div */
+  top: 50%;
+  left: 50%;
+  /* Offset by half of its own size to truly center it */
+  margin-top: -25px; /* half of height */
+  margin-left: -25px; /* half of width */
+
+  /* This is where the magic happens. We use CSS variables and calc to position each div. */
+}
+
+.wheel-text {
+  color: #fbcb58;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+}

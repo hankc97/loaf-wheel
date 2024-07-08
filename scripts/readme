@@ -1,0 +1,3 @@
+Uses tsconfig.common.json with ts-node to run the add_wheel task
+
+ts-node -P ./tsconfig.common.json scripts/tasks/add_wheel.ts

@@ -1,0 +1,35 @@
+.gradient-text-white-300 {
+  background: linear-gradient(180deg, #0b0b0b 0%, #fff 33.51%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1.625px;
+  text-transform: uppercase;
+}
+
+.animated-text {
+  /* Define the continuous animation */
+  animation: colorChange 5s infinite;
+}
+
+/* Define keyframes for the color animation */
+@keyframes colorChange {
+  0% {
+    color: #ff7eb6;
+  }
+  20% {
+    color: #ff7eb6;
+  }
+  40% {
+    color: #e26ac1;
+  }
+  60% {
+    color: #ca62b7;
+  }
+  80% {
+    color: #c9e9ff;
+  }
+  100% {
+    color: #c9e9ff;
+  } /* Loop back to the first color */
+}

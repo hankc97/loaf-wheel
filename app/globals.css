@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ModeSeven";
+  src: url("./fonts/Modeseven.ttf");
+}
+
+:root {
+}
+
+@layer utilities {
+}
+
+body {
+  background-color: #56200e;
+  background-image: url("/loaf/bg.svg"); /* Replace 'background-image.jpg' with your image path */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
