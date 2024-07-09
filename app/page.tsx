@@ -136,7 +136,7 @@ export default function Home() {
   }, [isWheelSpinning]);
 
   const [modalHelperView, setModalHelperView] = useState<"deposit" | "rewards">(
-    "rewards"
+    "deposit"
   );
 
   return (
@@ -164,7 +164,7 @@ export default function Home() {
             </div>
           </div>
           <div className="md:block hidden">
-            <div className="absolute top-[580px] left-1/2 translate-x-[-50%] z-50 flex items-center flex-col ">
+            <div className="absolute top-[580px] left-1/2 translate-x-[-52%] z-50 flex items-center flex-col ">
               <SpinButton
                 allowWheelSpin={allowWheelSpin}
                 spinWheel={() => handleSpinWheel()}

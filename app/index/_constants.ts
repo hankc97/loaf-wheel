@@ -1,5 +1,8 @@
 import { WheelRewards } from "../type";
 
+export const SOL_TOKEN = "SOLANA";
+export const LOAF_TOKEN = "3de2yRhtD4VbJBb8EQAQffYMPLU4EnSHT1eveBwiL3tn";
+
 export const WHEEL_REWARDS: WheelRewards[] = [
   {
     reward: "TRY AGAIN",

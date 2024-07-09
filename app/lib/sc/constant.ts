@@ -7,6 +7,6 @@ export const rpcConnection = new Connection(
 
 export const isDevnet = rpcConnection.rpcEndpoint.includes("devnet");
 
-export const GCR_TOKEN_MINT = isDevnet
+export const LOAF_TOKEN_MINT = isDevnet
   ? ""
   : "3de2yRhtD4VbJBb8EQAQffYMPLU4EnSHT1eveBwiL3tn";

@@ -21,6 +21,7 @@ import Footer from "./ui/footer";
 import { Header } from "./ui/header";
 import { Toaster } from "sonner";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { Toaster as ReactHotToast } from "react-hot-toast";
 
 require("@solana/wallet-adapter-react-ui/styles.css");
 
@@ -45,6 +46,17 @@ export default function RootLayout({
             <WalletModalProvider>
               <body className={``}>
                 <Toaster richColors position="bottom-center" />
+                <ReactHotToast
+                  position="bottom-center"
+                  toastOptions={{
+                    style: {
+                      backgroundColor: "#334155",
+                      color: "#f9fafb",
+                      minWidth: "250px",
+                      wordBreak: "break-all",
+                    },
+                  }}
+                />
                 <Header />
                 {children}
                 <Footer />

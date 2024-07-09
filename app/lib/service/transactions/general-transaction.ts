@@ -20,9 +20,6 @@ export class TransactionsService {
     keypair?: Keypair,
     onPollSuccess?: () => Promise<void>
   ): Promise<any> {
-    // const adminWallet = new NodeWallet(keypair);
-    // const signedTxn = await adminWallet.signTransaction(txn);
-
     const transactionSim = await this.conn.simulateTransaction(signedTxn);
     if (transactionSim.value.err) {
       console.error("Txn Simulation Error:", JSON.stringify(transactionSim));
@@ -52,17 +49,6 @@ export class TransactionsService {
       );
     }
     await Promise.allSettled(promises);
-
-    // const pollFunction = onPollSuccess
-    //     ? generateTxnConfirmPollFunction(transactionId, onPollSuccess)
-    //     : generateTxnConfirmPollFunction(transactionId);
-    // const actionId = await this.actionService.registerAction(
-    //     userId,
-    //     pollFunction,
-    //     /* pollIntervalMs= */ 1_000,
-    //     Jito.MAXIMUM_POLL_TIME_MS
-    // );
-    // return { actionId };
 
     return { transactionId };
   }
