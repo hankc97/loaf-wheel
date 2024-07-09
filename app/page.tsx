@@ -12,8 +12,8 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import Deposit from "./index/deposit";
 import ViewRewards from "./index/rewards";
 import LoafWheelPng from "@/public/loaf/wheel.png";
-import FortuneButtonSvg from "@/public/loaf/fortune_button_brown.svg";
 import FortuneButtonPng from "@/public/loaf/fortune_btn_browns.png";
+import { RewardBanner } from "./index/banner";
 
 export function getRandomNumber() {
   const random = Math.random() * 0.7; // generate a random number between 0 and 0.7
@@ -104,6 +104,15 @@ export default function Home() {
     }
   };
 
+  const [showResult, setShowResult] = useState<boolean>(false);
+  const handleShowResult = async () => {
+    setShowResult(true); // Immediately set showResult to true
+
+    // Wait for 4 seconds and then set showResult back to false
+    setTimeout(() => {
+      setShowResult(false);
+    }, ResetBufferTime);
+  };
   useEffect(() => {
     if (isWheelSpinning) {
       if (!wheelRef.current || !reward) return;
@@ -125,7 +134,7 @@ export default function Home() {
             gsap.set(wheelRef.current, { rotation: 0 });
           }, ResetBufferTime);
 
-          // handleShowResult();
+          handleShowResult();
 
           // Reset any other states or properties
           setIsWheelSpinning(false);
@@ -149,6 +158,7 @@ export default function Home() {
           />
           <div className="md:absolute md:block hidden top-[50px] left-1/2 translate-x-[-52%] z-10">
             <div className="relative w-full h-full">
+              {showResult && reward ? <RewardBanner reward={reward} /> : null}
               <DesktopWheel wheelRef={wheelRef} wheelRewards={WHEEL_REWARDS} />
               <div className="absolute right-[-350px] top-1/2 translate-y-[-35%] z-50">
                 {modalHelperView === "deposit" ? (
