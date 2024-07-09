@@ -49,6 +49,7 @@ const config: Config = {
         },
         "loaf-brown": {
           100: "#bb7b01",
+          200: "#8b4513",
         },
       },
       fontSize: {

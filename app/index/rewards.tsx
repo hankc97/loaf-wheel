@@ -32,7 +32,7 @@ const ViewRewards = ({
   const { data: wheelRewards } = useLoafWheelRewards();
 
   return (
-    <div className="relative bg-[#ffe6b9] w-[300px] h-[400px] border-[10px] border-[#8b4513] border-solid rounded-lg">
+    <div className="relative bg-[#ffe6b9] w-[320px] h-[400px] border-[10px] border-[#8b4513] border-solid rounded-lg">
       <div className="absolute w-full h-full z-50 font-[700] font-sans">
         <TitleText
           text={`${wheelRewards ? wheelRewards.length : 0} Rewards`}

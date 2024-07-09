@@ -14,6 +14,7 @@ import ViewRewards from "./index/rewards";
 import LoafWheelPng from "@/public/loaf/wheel.png";
 import FortuneButtonPng from "@/public/loaf/fortune_btn_browns.png";
 import { RewardBanner } from "./index/banner";
+import { ClipLoader } from "react-spinners";
 
 export function getRandomNumber() {
   const random = Math.random() * 0.7; // generate a random number between 0 and 0.7
@@ -42,9 +43,11 @@ export const orderByTrueWheelPosition = (
 const SpinButton = ({
   allowWheelSpin,
   spinWheel,
+  isLoadingWheelRequest,
 }: {
   allowWheelSpin: boolean;
   spinWheel: () => void;
+  isLoadingWheelRequest: boolean;
 }) => {
   const [isSpinning, setIsSpinning] = useState(false);
 
@@ -73,7 +76,19 @@ const SpinButton = ({
           className="absolute top-0 left-1/2 translate-x-[-50%] z-10 "
         />
         <span className="text-xl text-white z-50 relative mt-[27px]">
-          Spin The Wheel
+          {isLoadingWheelRequest ? (
+            <>
+              <ClipLoader
+                color={"#ffffff"}
+                loading={isLoadingWheelRequest}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+                className="pb-[2px]"
+              />
+            </>
+          ) : (
+            <>Spin The Wheel</>
+          )}
         </span>
       </div>
     </>
@@ -89,9 +104,14 @@ export default function Home() {
   const [isWheelSpinning, setIsWheelSpinning] = useState<boolean>(false);
   const [reward, setReward] = useState<WheelRewards | null>(null);
 
+  const [isLoadingWheelRequest, setIsLoadingWheelRequest] =
+    useState<boolean>(false);
+
   const handleSpinWheel = async () => {
     try {
+      setIsLoadingWheelRequest(true);
       const reward = await spinWheel({ publicKey: publicKey?.toBase58() });
+      setIsLoadingWheelRequest(false);
 
       setReward(reward);
       setAllowWheelSpin(false);
@@ -178,6 +198,7 @@ export default function Home() {
               <SpinButton
                 allowWheelSpin={allowWheelSpin}
                 spinWheel={() => handleSpinWheel()}
+                isLoadingWheelRequest={isLoadingWheelRequest}
               />
             </div>
           </div>
